@@ -1,10 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }} !
-  </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
 
-  <!-- 
+      <h1> {{ title }} </h1>
+
+      <app-header></app-header>
+
+      <!-- <app-login></app-login> -->
+      <!--
+        <app-login 
+          [formtitle]="espaceSignIn" 
+          [info]="'Login form SignIn'">
+        </app-login>
+       -->
+      <app-login 
+        *ngFor="let espace of espaces"
+        [formtitle]="espace.name" 
+        [info]="espace.login">
+      </app-login>
+
+      <app-footer></app-footer>
+
+      <div class="input-group mb-3">
+        <ul>
+          <li class="list-group-item">
+            <span>Modifier ci-dessous le titre de la page</span>
+            <input type="text" class="text form-control" 
+            [(ngModel)]="title">
+          </li>
+        </ul>
+      </div>
+
+      <div>
+
+
+      </div>
+
+      <!--
+    <button class="btn btn-success" 
+        [disabled]="!isAuth" 
+       (click)="onAllumer()" >Tout allumer</button>
+-->
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 
+ The content below is only a placeholder and can be replaced.
 
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
@@ -23,6 +67,3 @@
   </li>
 </ul>
 -->
-
-<app-header></app-header>
-<app-footer></app-footer>

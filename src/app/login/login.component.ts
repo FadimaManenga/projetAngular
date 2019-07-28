@@ -1,15 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  //formtitle = "Login form";
+ @Input() formtitle: string;
+  /*
+  @Input() formsignin: string;
+  @Input() formsignout: string;
+  @Input() formsignup: string;
+  */
+  
+  //info = "complete this login form";
+  @Input() info: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  clicked = false;
+  
+  message = "Your connexion hab been successfull ! You'll be redirige to your workpeace.";
+  
+  constructor() {
+    setTimeout(
+      () => {
+        this.clicked = true;
+      }, 5000
+    );
   }
+  
+  information() {
+    return this.info;
+  }
+ 
+onBtClick() { 
+      confirm(this.message);
+      console.log(this.message);
+  }
+
+getColor() {
+  if(this.clicked=true){
+    return 'green';
+  } 
+  else {
+    return 'red';
+  }
+}
 
 }

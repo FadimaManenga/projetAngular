@@ -1,15 +1,19 @@
-ul {
-    display: flex;
-    justify-content: space-between;
+
+.list-group {
+    display:inline-flex;
+    justify-content:space-between;
     list-style-type: none;
-    padding: 1px;
-    background-color: aqua;
-    font-size: 12px;
-
 }
 
-hr {
-    width: 90%;
-
+.list-group li {
+    margin: 5px;
+    border:0 1px 0 0;
 }
+.active a {
+   color:white;
+}
+
+
+
+
 

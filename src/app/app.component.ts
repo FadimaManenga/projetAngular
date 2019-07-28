@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ErrorHandler } from '@angular/core';
+import { callbackify } from 'util';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my first Angular SPA';
+
+  title = 'Welcome to your login space';
+
+/*
+  espaceSignIn = "Login form SignIn";
+  espaceSignOut = "Login form SignOut";
+  espaceSignUp = "Login form SignUp";
+*/ 
+
+  espaces = [
+    {
+      name: "SignIn",
+      login: "Login form SignIn"
+    },
+
+    {
+      name: "SignOut",
+      login: "Login form SignOut"
+    },
+
+    {
+      name: "SignIn",
+      login: "Login form SignUp"
+    },
+
+  ];
+
+
+
 }
