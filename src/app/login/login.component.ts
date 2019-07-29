@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent {
 
   clicked = false;
   
-  message = "Your connexion hab been successfull ! You'll be redirige to your workpeace.";
+  message = "Your connexion hab been successfull ! You'll be send to your workpeace.";
   
   constructor() {
     setTimeout(
@@ -38,13 +39,15 @@ onBtClick() {
       console.log(this.message);
   }
 
-getColor() {
-  if(this.clicked=true){
-    return 'green';
-  } 
-  else {
-    return 'red';
-  }
+getColor(){
+if (this.clicked) {
+  return 'green'; 
+} else {
+  return 'red';
 }
+}
+
+
+ 
 
 }

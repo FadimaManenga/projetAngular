@@ -28,7 +28,7 @@ export class AppComponent {
     },
 
     {
-      name: "SignIn",
+      name: "SignUp",
       login: "Login form SignUp"
     },
 
