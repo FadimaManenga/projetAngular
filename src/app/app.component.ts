@@ -1,5 +1,6 @@
 import { Component, ErrorHandler } from '@angular/core';
 import { callbackify } from 'util';
+import { reject } from 'q';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,18 @@ export class AppComponent {
   espaceSignOut = "Login form SignOut";
   espaceSignUp = "Login form SignUp";
 */ 
+
+  // nouvel object de type date
+  // lastUpdate = new Date();
+  // création d'une promesse
+  lastUpdate = new Promise((resolve,reject) => {
+      const date = new Date();
+      setTimeout(
+        () => {
+        resolve(date);
+      }, 2000
+    );
+  });
 
   espaces = [
     {

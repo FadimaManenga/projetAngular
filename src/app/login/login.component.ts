@@ -21,6 +21,8 @@ export class LoginComponent {
   clicked = false;
   
   message = "Your connexion hab been successfull ! You'll be send to your workpeace.";
+
+
   
   constructor() {
     setTimeout(

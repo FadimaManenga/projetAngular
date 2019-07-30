@@ -5,7 +5,8 @@
       <h1> {{ title }} </h1>
 
       <app-header></app-header>
-
+      
+      <p> Mise à jour : {{ lastUpdate | async | date:"EEE /MM/dd/yy" | uppercase }}</p>
       <!-- <app-login></app-login> -->
       <!--
         <app-login 
@@ -13,20 +14,20 @@
           [info]="'Login form SignIn'">
         </app-login>
        -->
-      <app-login 
-        *ngFor="let espace of espaces"
-        [formtitle]="espace.name" 
-        [info]="espace.login">
+      <app-login *ngFor="let espace of espaces" [formtitle]="espace.name" [info]="espace.login">
       </app-login>
 
       <app-footer></app-footer>
 
       <div class="input-group mb-3">
         <ul>
-          <li class="list-group-item">
+          <!-- <li class="list-group-item">-->
+          <li [ngClass]="{
+            'list-group-item': true,
+            'list-group-item-success' : clicked,
+            'list-group-item-danger': !clicked}">
             <span>Modifier ci-dessous le titre de la page</span>
-            <input type="text" class="text form-control" 
-            [(ngModel)]="title">
+            <input type="text" class="text form-control" [(ngModel)]="title">
           </li>
         </ul>
       </div>
