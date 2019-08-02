@@ -1,0 +1,9 @@
+<!--<p>login-view works!</p>-->
+
+<app-login 
+*ngFor="let espace of espaces; let i = index"
+[indexLogin]="i"
+[formtitle]="espace.name" 
+[info]="espace.login"
+[id]= "espace.id">
+</app-login>

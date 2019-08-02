@@ -1,11 +1,18 @@
 <!--  <h3>Votre espace de connexion</h3> -->
 <div class="content">
- <h3> {{formtitle}} </h3> 
-  <p> Please complete this : <strong>{{information()}}</strong></p>
+  <h3> {{formtitle}} </h3>
+  <p>
+    Etat du formulaire :
+    <strong>{{information()}}</strong>
+    <span id="red02" *ngIf="!clicked" [ngStyle]="{'color': getColor()}">
+      &#x263c;</span>
+    <span id="green02" *ngIf="clicked" [ngStyle]="{'color': getColor()}">
+      &#x263c;</span>
+  </p>
 
-    <form>
-  <!--<div class="form-group">-->
-  <div [ngClass]="{'form-group': true,
+  <form>
+    <!--<div class="form-group">-->
+    <div [ngClass]="{'form-group': true,
   'has-success': clicked,
   'has-error': !clicked}">
       <label>Email address</label>
@@ -16,8 +23,24 @@
       <input type="checkbox" class="form-check-input">
       <label class="form-check-label">Check me out</label>
     </div>
-    <button type="submit" class="btn btn-success" [disabled]="!clicked" onclick="message"
-      (click)="onBtClick()">OK</button>
+    <!-- 
+    <button 
+    type="submit" 
+    class="btn btn-success" [disabled]="!clicked" onclick="message"
+    (click)="onBtClick()">
+    OK</button>
+    <br>
+-->
+
+    
+
+    <button type="submit" class="btn btn-success" [disabled]=" !clicked" onclick="clicked === 'Actif'"
+      (click)="onSwitchOn()">
+      Actif</button>
+
+    <button class="btn btn-danger" (click)="onSwitchOff()" [disabled]=" !clicked" onclick="clicked === 'Inactif'">
+      Inactif</button>
+
 
     <div *ngIf="!clicked">
       <label [ngStyle]="{'color': getColor()}"> Etat du bouton : inactif</label>
@@ -27,7 +50,10 @@
     <div *ngIf="clicked">
       <label [ngStyle]="{'color': getColor()}"> Etat du bouton : actif</label>
       <span id="green">&#x263c;</span>
-
     </div>
   </form>
+
+  <a [routerLink]="[id]">Détail</a>
+
+
 </div>

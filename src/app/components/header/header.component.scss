@@ -1,19 +1,19 @@
 
-.list-group {
+.list-group, .navbar {
     display:inline-flex;
     justify-content:space-between;
     list-style-type: none;
 }
 
-.list-group li {
+.list-group li, .navbar li {
     margin: 5px;
     border:0 1px 0 0;
 }
+/*
 .active a {
    color:white;
 }
-
-
+*/
 
 
 
