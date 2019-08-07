@@ -1,0 +1,56 @@
+<!--<p>login-form works!</p>-->
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <!--
+      préparation de la balise form à la soumission d'Angular :
+      + déclaration de la méthode de soumission : onSubmit() 
+      + ajout de l'attribut référence locale : #f ou #my-name, et le passer comme argument à la méthode
+      + ngForm pour la valeur de l'attribut réf. locale, pour permettre à Angular d'accèder à l'object  crée.
+   -->
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="name">
+          Nom du formulaire
+        </label>
+        <!-- 
+              - soumission des champs aux controls Angular :
+                  ++ ajout de l'attribut name => clé-valeur rendu par l'id
+                  ++ ajout de l'attribut ngModel pour enregistrement du contrôle
+              - champ obligatoire : required
+             -->
+        <input type="text" id="name" class="form-control" name="name" ngModel resquired>
+      </div>
+      <div class="form-group">
+        <label for="login">
+          Etat du formulaire
+        </label>
+        <!-- 
+              soumission des champs aux controls Angular :
+                  + ajout de l'attribut name => clé-valeur rendu par l'id
+                  + ajout de l'attribut ngModel pour enregistrement du contrôle
+              -->
+        <select id="login" class="form-control" name="login" ngModel="defaultInactif">
+          <option value="actif">Actif</option>
+          <option value="Inactif">Inactif</option>
+        </select>
+      </div>
+      <!--
+           - préparation du button à la soumission d'Angular grâce au champ : type="submit" 
+           - intégration de l'état de validation du formulaire :
+            [disabled]="f.invalid // le button sera désactivé après validation si f renvoie true.
+       -->
+      <button class="btn btn-primary" type="submit" [disabled]=f.invalid>Valider</button>
+    </form>
+  </div>
+</div>
+
+
+<app-login></app-login>
+<div>
+  <a routerLink="/logins">Retour à la liste des logins</a>
+</div>
+<!--
+<app-login *ngFor="let espace of espaces; let i = index" [indexLogin]="i" [formtitle]="espace.name"
+  [info]="espace.login" [id]="espace.id">
+</app-login>
+-->

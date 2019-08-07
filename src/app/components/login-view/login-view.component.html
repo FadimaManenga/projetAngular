@@ -1,9 +1,27 @@
 <!--<p>login-view works!</p>-->
 
-<app-login 
-*ngFor="let espace of espaces; let i = index"
-[indexLogin]="i"
-[formtitle]="espace.name" 
-[info]="espace.login"
-[id]= "espace.id">
+
+<app-header></app-header>
+
+<p>Today is : {{ lastUpdate | async | date:"EEE /MM/dd/yy" | uppercase }}</p>
+
+<app-login *ngFor="let espace of espaces; let i = index" [indexLogin]="i" [formtitle]="espace.name"
+  [info]="espace.login" [id]="espace.id">
 </app-login>
+
+
+<div>
+  <button class="btn btn-success" (click)="etatActif()">Actif</button>
+  <button class="btn btn-danger" (click)="etatInactif()">Inactif</button>
+</div>
+
+<div class="input-group mb-3">
+  <ul>
+    <li [ngClass]="{
+        'list-group-item': true,
+        'list-group-item-success' : clicked,
+        'list-group-item-danger': !clicked}">
+      
+    </li>
+  </ul>
+</div>

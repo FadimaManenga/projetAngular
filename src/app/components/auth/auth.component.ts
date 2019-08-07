@@ -9,19 +9,19 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent implements OnInit {
 
-  authStatus: boolean;
+  authLogin: boolean;
 
   constructor(private authService: AuthService, private router:Router) { }
 
   ngOnInit() {
-    this.authStatus = this.authService.isAuth;
+    this.authLogin = this.authService.isAuth;
   }
 
   onSignIn() {
     this.authService.signIn().then(
       () => {
         console.log('Sign in successful!');
-        this.authStatus = this.authService.isAuth;
+        this.authLogin = this.authService.isAuth;
         this.router.navigate(['logins']);
 
       }
@@ -30,7 +30,7 @@ export class AuthComponent implements OnInit {
 
   onSignOut() {
     this.authService.signOut();
-    this.authStatus = this.authService.isAuth;
+    this.authLogin = this.authService.isAuth;
   }
 
 }

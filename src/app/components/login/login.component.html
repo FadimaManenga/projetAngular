@@ -32,15 +32,12 @@
     <br>
 -->
 
-    
-
     <button type="submit" class="btn btn-success" [disabled]=" !clicked" onclick="clicked === 'Actif'"
-      (click)="onSwitchOn()">
+      (click)="onActifOne()">
       Actif</button>
 
-    <button class="btn btn-danger" (click)="onSwitchOff()" [disabled]=" !clicked" onclick="clicked === 'Inactif'">
+    <button class="btn btn-danger" (click)="onInactifOne()" [disabled]=" !clicked" onclick="clicked === 'Inactif'">
       Inactif</button>
-
 
     <div *ngIf="!clicked">
       <label [ngStyle]="{'color': getColor()}"> Etat du bouton : inactif</label>
@@ -53,7 +50,6 @@
     </div>
   </form>
 
-  <a [routerLink]="[id]">Détail</a>
-
-
+  <a [routerLink]="[id]">Détail</a><br>
+  
 </div>

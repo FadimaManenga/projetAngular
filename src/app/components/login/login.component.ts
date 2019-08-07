@@ -19,9 +19,9 @@ export class LoginComponent {
   // info = "complete this login form";
   @Input() info: string;
   // index 
-  @Input() indexLogin:number;
+  @Input() indexLogin: number;
   // id
-  @Input() id :number;
+  @Input() id: number;
 
   clicked = false;
 
@@ -40,7 +40,7 @@ export class LoginComponent {
   }
 
   onBtClick() {
-    confirm(this.message);
+    //confirm(this.message);
     console.log(this.message);
   }
 
@@ -52,15 +52,12 @@ export class LoginComponent {
     }
   }
 
-  onSwitchOn(){
-    this.espaceService.switchOnOne(this.indexLogin);
+  onActifOne() {
+    this.espaceService.actifOne(this.indexLogin);
     confirm(this.message);
   }
 
-  onSwitchOff() {
-    this.espaceService.switchOffOne(this.indexLogin);
+  onInactifOne() {
+    this.espaceService.inactifOne(this.indexLogin);
   }
-
-
-
 }
