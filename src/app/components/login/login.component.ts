@@ -60,4 +60,6 @@ export class LoginComponent {
   onInactifOne() {
     this.espaceService.inactifOne(this.indexLogin);
   }
+
+
 }

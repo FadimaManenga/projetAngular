@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EspaceService} from '../services/espace.service';
+import { EspaceService } from '../services/espace.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
@@ -11,15 +11,15 @@ export class LoginViewComponent implements OnInit {
 
   title = 'Welcome to angular SPA';
 
-lastUpdate = new Promise((resolve, reject) => {
-  const date = new Date();
-  setTimeout(
-    () => {
-      resolve(date);
-    }, 2000
-  );
-});
-  
+  lastUpdate = new Promise((resolve, reject) => {
+    const date = new Date();
+    setTimeout(
+      () => {
+        resolve(date);
+      }, 2000
+    );
+  });
+
   // créer un tableau vide de type any pour le fonct de l'application
   espaces: any[];
   espaceSubscription: Subscription;
@@ -30,7 +30,7 @@ lastUpdate = new Promise((resolve, reject) => {
     setTimeout(
       () => {
         this.isAuth = true;
-    }, 4000
+      }, 4000
     );
   };
 
@@ -38,13 +38,13 @@ lastUpdate = new Promise((resolve, reject) => {
   // elle doit être exécuter au moment de la création du component par Angular, et après l'exécution du constructor
   ngOnInit() {
     //this.espaces = this.espaceService.espaces;
-   this.espaceSubscription = this.espaceService.espaceSubject.subscribe(
-     (espaces:any[]) => {
-       this.espaces = espaces;
-     }
-   );
-   this.espaceService.emitEspaceSubject();
-    
+    this.espaceSubscription = this.espaceService.espaceSubject.subscribe(
+      (espaces: any[]) => {
+        this.espaces = espaces;
+      }
+    );
+    this.espaceService.emitEspaceSubject();
+
   }
   etatActif() {
     this.espaceService.actifAll();
@@ -53,4 +53,13 @@ lastUpdate = new Promise((resolve, reject) => {
   etatInactif() {
     this.espaceService.inactifAll();
   }
+
+  onSave() {
+    this.espaceService.saveEspacesToServe();
+  }
+
+onFetch() {
+  this.espaceService.getEspacesFromServer();
+}
+
 }
