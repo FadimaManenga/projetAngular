@@ -22,6 +22,7 @@ export class LoginViewComponent implements OnInit {
 
   // créer un tableau vide de type any pour le fonct de l'application
   espaces: any[];
+
   espaceSubscription: Subscription;
   isAuth: boolean;
 

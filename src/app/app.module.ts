@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from "@angular/router";
@@ -17,11 +17,10 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './components/services/auth-guard.service';
 import { AuthService } from './components/services/auth.service';
 import { EspaceService } from './components/services/espace.service';
-
-
-
-
-
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { UserService } from './components/services/user.service';
+import { NewUserComponent } from './components/new-user/new-user.component';
+import { from } from 'rxjs';
 
 
 const appRoutes: Routes = [
@@ -29,6 +28,8 @@ const appRoutes: Routes = [
   {path: 'logins/:id', canActivate:[AuthGuard], component: LoginSingleComponent},
   {path: 'form', canActivate: [AuthGuard], component: LoginFormComponent},
   {path: 'auth', component: AuthComponent},
+  {path: 'users', component: UsersListComponent},
+  {path: 'new-user', component: NewUserComponent},
   {path: '', component: LoginViewComponent},
   {path: 'not-found', component: Error404Component},
   {path: '**', redirectTo: '/not-found'}
@@ -45,11 +46,14 @@ const appRoutes: Routes = [
     LoginViewComponent,
     LoginSingleComponent,
     Error404Component,
-    LoginFormComponent
+    LoginFormComponent,
+    UsersListComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
     
@@ -58,7 +62,9 @@ const appRoutes: Routes = [
   providers: [
     EspaceService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
+
    
   ],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 <!--  <h3>Votre espace de connexion</h3> -->
+
 <div class="content">
+  
   <h3> {{formtitle}} </h3>
   <p>
     Etat du formulaire :
@@ -15,6 +17,7 @@
     <div [ngClass]="{'form-group': true,
   'has-success': clicked,
   'has-error': !clicked}">
+  
       <label>Email address</label>
       <input type="email" class="form-control" placeholder="Enter email" autofocus>
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>

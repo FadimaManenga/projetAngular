@@ -1,0 +1,18 @@
+<!-- <p>users-list works!</p> -->
+
+<!--template de users-list-->
+<app-header></app-header>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of users">
+        <!--list pour chaque user dans l'array User[]-->
+        <h3>{{user.firstName}} {{user.lastName}}</h3>
+        <!--header-->
+        <p>{{user.mail}}</p>
+        <p>Cette personnee préfère le {{user.drinkPreference}}</p>
+        <p *ngIf="user.hobbies && user.hobbies.length > 0">
+            Cette personne a des hobbies : <br>
+            <span *ngFor="let hobby of user.hobbies">{{hobby}} <br></span>
+            <!-- si l'objet hobby existe et si au moins un -->
+        </p>
+    </li>
+</ul>

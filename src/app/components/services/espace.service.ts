@@ -5,9 +5,30 @@ import { error } from 'protractor';
 
 @Injectable()
 export class EspaceService {
-    //espaces = [
-    espaceSubject = new Subject<any[]>();
-    private espaces = [];
+    /*
+      //espaces = [
+        espaceSubject = new Subject<any[]>();
+        private espaces = [
+            {
+                id:1,
+                name: "SignIn",
+                login: "Actif"
+            },
+            {
+                id:2,
+                name: "SignOut",
+                login: "Inactif"
+            },
+            {
+                id:3,
+                name: "SignUp",
+                login: "Inactif"
+            },
+        ];
+    */
+   
+   espaceSubject = new Subject<any[]>();
+   private espaces = [];
 
     constructor(private httpClient: HttpClient) { }
 
